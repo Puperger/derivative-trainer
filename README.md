@@ -7,6 +7,7 @@ at derivatives.
 
 Currently the following is implemented:
 - Power Rule
+- Sum Rule
 
 Currently in work are:
 - Chain Rule
