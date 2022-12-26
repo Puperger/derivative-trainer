@@ -27,14 +27,31 @@ def end(file):
     return
 
 def generate_eq():
-    coefficient = random.randint(1,10)
-    exponent = random.randint(0,10)
-    if exponent == 0:
-        return coefficient,0
-    if exponent == 1:
-        return f"{coefficient}x",coefficient 
-    if exponent == 2:
-        return f"{coefficient}x^2",f"{2*coefficient}x" 
-    return f"{coefficient}x^{{{exponent}}}",f"{coefficient*exponent}x^{{{exponent-1}}}" 
+    qs = ""
+    ans= ""
+    coefficient, exponent = 0,0
+    for i in range(3):
+        rnd = random.randint(1,100)
+        if rnd < i*40:
+            break
+        if i>0:
+            qs  += "+"
+            ans += "+"
+        coefficient = random.randint(1,10)
+        exponent = random.randint(0,6)
+        if exponent == 0:
+            qs = qs + str(coefficient)
+            ans = ans + "0"
+        elif exponent == 1:
+            qs = qs + f"{coefficient}x"
+            ans = ans + str(coefficient) 
+        elif exponent == 2:
+            qs = qs + f"{coefficient}x^2"
+            ans = ans + f"{2*coefficient}x"
+        else:
+            qs = qs + f"{coefficient}x^{{{exponent}}}"
+            ans = ans + f"{coefficient*exponent}x^{{{exponent-1}}}"
+    return qs,ans
+
 if __name__ == "__main__":
     main()
