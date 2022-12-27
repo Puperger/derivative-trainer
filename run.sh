@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env -S bash -Eeuxo pipefail
 
 #Create output dir
 mkdir -p out
