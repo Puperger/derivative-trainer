@@ -18,7 +18,7 @@ def start(file):
     file.write("\\documentclass{article}\n\\usepackage[utf8]{inputenc}")
     file.write("\n\\usepackage{multicol}")
     file.write("\n\\begin{document}")
-    file.write("\n\\begin{multicols}{3}")
+    file.write("\n\\begin{multicols}{2}")
     file.write("\n\\begin{enumerate}")
     return
 

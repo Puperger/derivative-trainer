@@ -28,13 +28,40 @@ def makeTerm(power):
     return f"{coef}x^{{{power}}}",f"{coef*power}x^{{{power-1}}}"
 
 def getEq():
-    powers = getExponents()
+    hasProd = random.randint(0,10)
     qs = ""
     ans = ""
-    for power in powers:
-        x,y = makeTerm(power)
-        qs += x + "+"
-        ans+= y + "+"
-    qs = qs[:-1]
-    ans=ans[:-1]
+    if hasProd < 8:
+        powers = getExponents()
+
+        for power in powers:
+            x,y = makeTerm(power)
+            sign = random.choice(["+","-"])
+            qs += x + sign
+            ans+= y + sign
+        qs = qs[:-1]
+        ans=ans[:-1]
+
+    if hasProd >= 8:
+        storage = ["",""]
+        derivatives = ["",""]
+        for i in range(2):
+            ans,qs = "",""
+            qs += "("
+            powers = getExponents()
+
+            for power in powers:
+                x,y = makeTerm(power)
+                sign = random.choice(["+","-"])
+                qs += x + sign
+                ans+= y + sign
+            qs = qs[:-1]
+            ans=ans[:-1]
+            qs += ")"
+            storage[i]=qs
+            derivatives[i]=ans
+
+        qs = storage[0]+storage[1]
+        ans = storage[0]+"("+derivatives[1]+")+"+storage[1]+"("+derivatives[0]+")"
+
     return qs, ans

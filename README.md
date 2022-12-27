@@ -17,4 +17,7 @@ Currently in work are:
 For this program to work you need to have a $\LaTeX$ compiler and Python 3
 installed.
 
+You should also run
+`pip3 install pick`
+
 If you have any requests or suggestions feel free to hit me up sometime.
