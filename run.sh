@@ -9,8 +9,8 @@ echo "created questions"
 
 #Compile the LaTeX files
 cd out
-pdflatex questions.tex > NUL 2>&1
+pdflatex questions.tex >&/dev/null
 echo "questions.pdf has been generated"
-pdflatex answers.tex > NUL 2>&1
+pdflatex answers.tex >&/dev/null
 echo "answers.pdf has been generated"
 cd ..
