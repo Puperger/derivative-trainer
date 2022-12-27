@@ -1,9 +1,9 @@
 import random
 
-def getExponents():
+def getExponents(Sum):
     powers = [i for i in range(7)]
     random.shuffle(powers)
-    difficulty = random.randint(1,10)
+    difficulty = random.randint(1,10) if Sum == 0 else 0
     if difficulty < 5: terms = 1
     else: terms = 2 if difficulty < 8 else 3
     powers = powers[0:terms]
@@ -27,12 +27,12 @@ def makeTerm(power):
         return f"{coef}x^2", f"{2*coef}x"
     return f"{coef}x^{{{power}}}",f"{coef*power}x^{{{power-1}}}"
 
-def getEq():
-    hasProd = random.randint(0,10)
+def getEq(prod, Sum):
+    hasProd=random.randint(0,10) if prod==0 else 0
     qs = ""
     ans = ""
     if hasProd < 8:
-        powers = getExponents()
+        powers = getExponents(Sum)
 
         for power in powers:
             x,y = makeTerm(power)
@@ -48,7 +48,7 @@ def getEq():
         for i in range(2):
             ans,qs = "",""
             qs += "("
-            powers = getExponents()
+            powers = getExponents(Sum)
 
             for power in powers:
                 x,y = makeTerm(power)

@@ -8,10 +8,10 @@ at derivatives.
 Currently the following is implemented:
 - Power Rule
 - Sum Rule
+- Product Rule
 
 Currently in work are:
 - Chain Rule
-- Product Rule
 - Quotient Rule
 
 For this program to work you need to have a $\LaTeX$ compiler and Python 3

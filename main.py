@@ -1,4 +1,5 @@
 import custommath
+import userinput as inp
 
 
 def main():
@@ -7,8 +8,10 @@ def main():
 
     start(f)
     start(g)
+    Sum = inp.Sum()
+    prod = inp.Product()
     for _ in range(int(input("How many questions? ~"))):
-        qs, sol = custommath.getEq()
+        qs, sol = custommath.getEq(prod, Sum)
         f.write(f"\\item ${qs}$")
         g.write(f"\\item ${sol}$")
     end(f)
