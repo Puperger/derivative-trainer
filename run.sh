@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Create output dir
+mkdir -p out
+
 #Run the program
 python3 main.py
 echo "created questions"
