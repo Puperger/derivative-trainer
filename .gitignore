@@ -1,8 +1,0 @@
-*.log
-*.aux
-*.tex
-*.pdf
-NUL
-.gitgnore
-.gitattributes
-texput.log
