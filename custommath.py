@@ -47,8 +47,10 @@ def getEq(prod, Sum):
         derivatives = ["",""]
         for i in range(2):
             ans,qs = "",""
-            qs += "("
             powers = getExponents(Sum)
+            
+            if len(powers)>1:
+                qs += "("
 
             for power in powers:
                 x,y = makeTerm(power)
@@ -57,11 +59,17 @@ def getEq(prod, Sum):
                 ans+= y + sign
             qs = qs[:-1]
             ans=ans[:-1]
-            qs += ")"
+            if len(powers)>1:
+                qs += ")"
             storage[i]=qs
             derivatives[i]=ans
 
-        qs = storage[0]+storage[1]
+        qs = (storage[0]+storage[1])
         ans = storage[0]+"("+derivatives[1]+")+"+storage[1]+"("+derivatives[0]+")"
+
+    qs = qs.replace("+0","")
+    qs = qs.replace("-0","")
+    ans = ans.replace("+0","")
+    ans = ans.replace("-0","")
 
     return qs, ans
