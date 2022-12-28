@@ -1,6 +1,2 @@
-*.log
-*.aux
-*.tex
-*.pdf
-NUL
-__pycache__
+out/
+__pycache__/
