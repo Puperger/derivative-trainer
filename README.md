@@ -9,10 +9,10 @@ Currently the following is implemented:
 - Power Rule
 - Sum Rule
 - Product Rule
+- Quotient Rule
 
 Currently in work are:
 - Chain Rule
-- Quotient Rule
 
 For this program to work you need to have a $\LaTeX$ compiler and Python 3
 installed.

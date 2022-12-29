@@ -28,7 +28,7 @@ def makeTerm(power):
     return f"{coef}x^{{{power}}}",f"{coef*power}x^{{{power-1}}}"
 
 def getEq(prod, Sum):
-    hasProd=random.randint(0,10) if prod==0 else 0
+    hasProd=random.randint(0,11) if prod==0 else 0
     qs = ""
     ans = ""
     if hasProd < 8:
@@ -42,7 +42,7 @@ def getEq(prod, Sum):
         qs = qs[:-1]
         ans=ans[:-1]
 
-    if hasProd >= 8:
+    elif hasProd < 10:
         storage = ["",""]
         derivatives = ["",""]
         for i in range(2):
@@ -66,6 +66,25 @@ def getEq(prod, Sum):
 
         qs = (storage[0]+storage[1])
         ans = storage[0]+"("+derivatives[1]+")+"+storage[1]+"("+derivatives[0]+")"
+    elif hasProd < 12:
+        storage = ["",""]
+        derivatives = ["",""]
+        for i in range(2):
+            ans,qs = "",""
+            powers = getExponents(Sum)
+
+            for power in powers:
+                x,y = makeTerm(power)
+                sign = random.choice(["+","-"])
+                qs += x + sign
+                ans+= y + sign
+            qs = qs[:-1]
+            ans=ans[:-1]
+            storage[i]=qs
+            derivatives[i]=ans
+
+        qs = "\\frac{"+storage[0]+"}{"+storage[1]+"}"
+        ans ="\\frac{("+storage[0]+")("+derivatives[1]+")-("+storage[1]+")("+derivatives[0]+")}{("+storage[1]+")^2}"
 
     qs = qs.replace("+0","")
     qs = qs.replace("-0","")
