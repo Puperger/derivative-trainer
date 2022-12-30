@@ -11,3 +11,10 @@ def Product():
     options = ["Yes","No"]
     _, index = pick(options,title)
     return index
+
+def Quot():
+    title = 'Use Quotient Rule?'
+    options = ["Yes","No"]
+    _, index = pick(options,title)
+    return index
+

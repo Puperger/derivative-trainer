@@ -27,11 +27,29 @@ def makeTerm(power):
         return f"{coef}x^2", f"{2*coef}x"
     return f"{coef}x^{{{power}}}",f"{coef*power}x^{{{power-1}}}"
 
-def getEq(prod, Sum):
-    hasProd=random.randint(0,11) if prod==0 else 0
+def getQType(prod,quot):
+    if prod==1:
+        if quot==1:
+            return 0
+        if quot==0:
+            out = random.randint(0,9)
+            return 0 if out < 8 else 2
+    if prod==0:
+         if quot==1:
+            return 0 if random.randint(0,9) < 8 else 1
+         if quot==0:
+            out = random.randint(0,11)
+            if out < 8: return 0
+            if out < 10:return 1
+            else:       return 2
+
+
+def getEq(prod, Sum, quot):
+    qType = getQType(prod, quot)
     qs = ""
     ans = ""
-    if hasProd < 8:
+
+    if qType==0:
         powers = getExponents(Sum)
 
         for power in powers:
@@ -42,7 +60,7 @@ def getEq(prod, Sum):
         qs = qs[:-1]
         ans=ans[:-1]
 
-    elif hasProd < 10:
+    elif qType==1:
         storage = ["",""]
         derivatives = ["",""]
         for i in range(2):
@@ -66,7 +84,7 @@ def getEq(prod, Sum):
 
         qs = (storage[0]+storage[1])
         ans = storage[0]+"("+derivatives[1]+")+"+storage[1]+"("+derivatives[0]+")"
-    elif hasProd < 12:
+    elif qType==2:
         storage = ["",""]
         derivatives = ["",""]
         for i in range(2):

@@ -10,8 +10,9 @@ def main():
     start(g)
     Sum = inp.Sum()
     prod = inp.Product()
+    quot = inp.Quot()
     for _ in range(int(input("How many questions? ~"))):
-        qs, sol = custommath.getEq(prod, Sum)
+        qs, sol = custommath.getEq(prod, Sum, quot)
         f.write(f"\\item ${qs}$")
         g.write(f"\\item ${sol}$")
     end(f)
